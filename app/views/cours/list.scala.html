@@ -1,0 +1,44 @@
+@(cours: List[Cours])
+
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Classes</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="@routes.Assets.at("javascripts/main.js")"></script>
+    </head>
+    <body id="main">
+        @header()
+        <div style="margin-left: 8%; margin-right: 8%; background-color: white">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>idCours</th>
+                        <th>idProf</th>
+                        <th>numSall</th>
+                        <th>DateCours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @for(cour <- cours) {
+                    <tr>
+                        <td>@cour.idCours</td>
+                        <td>@cour.idProf</td>
+                        <td>@cour.numSall</td>
+                        <td>@cour.dateCours</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        @footer()
+    </body>
+</html>

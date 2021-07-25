@@ -1,0 +1,161 @@
+@(etudiants: List[Etudiant])
+
+@import scala.Predef; var Valeur = Seq(Array(""));
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Classes</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="@routes.Assets.at("javascripts/main.js")"></script>
+    </head>
+    <body id="main">
+        @header()
+        <div style="margin-right: 20%; margin-left: 20%">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Rechercher un étudiant..." title="Type in a name">
+        </div>
+        <section id="etudiants">
+        @for(etudiant <- etudiants) {
+                <button class="accordion">@etudiant.idEtu : @etudiant.nomEtu @etudiant.prenomEtu
+                <span id="plus" class="ndambe glyphicon glyphicon-plus" style="float: right"></span>
+                </button>
+                <div class="panel">
+                    <h2>Bulletin de notes</h2>
+                    <br><br>
+                    <b>Numéro étudiant : @etudiant.idEtu</b><br><br>
+                    <b>Nom et Prénom : @etudiant.nomEtu @etudiant.prenomEtu</b><br><br>
+                    <b>Classe : @etudiant.niveau</b><br><br>
+                    <table class="table table-bordered" style="border: 1px solid black">
+                        <thead>
+                            <tr>
+                                <th>Libellé</th>
+                                <th>Devoir 1</th>
+                                <th>Devoir 2</th>
+                                <th>Examen</th>
+                                <th>Coef</th>
+                                <th>Moyenne</th>
+                                <th>Total / Possible</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @(Valeur = Seq(etudiant.Libelle, etudiant.devoir1, etudiant.devoir2, etudiant.exam, etudiant.coef))
+                            @for(i <- 0 to Valeur(0).size - 1 ) {
+                                <tr>
+                                    <td>@Valeur(0)(i)</td>
+                                    <td>@Valeur(1)(i)</td>
+                                    <td>@Valeur(2)(i)</td>
+                                    <td>@Valeur(3)(i)</td>
+                                    <td>@Valeur(4)(i)</td>
+                                    <td>@(((Valeur(1)(i).toDouble+Valeur(2)(i).toDouble)/2 + Valeur(3)(i).toDouble)/2)</td>
+                                    <td class=@etudiant.idEtu>@(((Valeur(1)(i).toDouble+Valeur(2)(i).toDouble)/2 + Valeur(3)(i).toDouble)/2 * Valeur(4)(i).toDouble) / @(Valeur(4)(i).toDouble*20)</td>
+                                </tr>
+                            }
+                    </tbody>
+                    </table><br>
+                    <b style="float: right;" id="Total@etudiant.idEtu">Total : </b><br>
+                    <b style="float: right;" id="Moyenne@etudiant.idEtu">Moyenne : </b><br>
+                    <b style="float: right;" id="Mention@etudiant.idEtu">Mention : </b><br><br>
+                </div>
+            <script>
+                var x = document.getElementsByClassName('@etudiant.idEtu');
+                var obtenu = 0
+                var possible = 0
+                var i
+                for (i = 0; i < x.length; i++) {
+                    var s = x[i].textContent.split('\/') ;
+                    obtenu += parseFloat(s[0])
+                    possible += parseFloat(s[1])
+                }
+                //alert(possible)
+                var moyenne = (obtenu * 20 / possible).toFixed(3);
+                document.getElementById("Total@etudiant.idEtu").textContent += obtenu + "/" + possible
+                document.getElementById("Moyenne@etudiant.idEtu").textContent += (obtenu * 20 / possible).toFixed(2)
+                if(moyenne >=16){
+                    document.getElementById("Mention@etudiant.idEtu").textContent += "Très bien"
+                }else if(moyenne >=14){
+                    document.getElementById("Mention@etudiant.idEtu").textContent += "Bien"
+                }else if(moyenne >=12){
+                    document.getElementById("Mention@etudiant.idEtu").textContent += "Assez bien"
+                }else if(moyenne >=10){
+                    document.getElementById("Mention@etudiant.idEtu").textContent += "Passable"
+                }else {
+                    document.getElementById("Mention@etudiant.idEtu").textContent += "Ajourné"
+                }
+            </script>
+
+        }
+        </section>
+
+        @footer()
+    </body>
+
+    <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            #myInput {
+                background-image: url('/css/searchicon.png');
+                background-position: 10px 12px;
+                background-repeat: no-repeat;
+                width: 100%;
+                font-size: 16px;
+                padding: 12px 20px 12px 40px;
+                border: 1px solid #ddd;
+                margin-bottom: 12px;
+            }
+
+            #myUL {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            #myUL li a {
+                border: 1px solid #ddd;
+                margin-top: -1px; /* Prevent double borders */
+                background-color: #f6f6f6;
+                padding: 12px;
+                text-decoration: none;
+                font-size: 18px;
+                color: black;
+                display: block
+            }
+
+            #myUL li a:hover:not(.header) {
+                background-color: #eee;
+            }
+    </style>
+
+    <script>
+        //Search Button
+            function myFunction() {
+                var input, filter, ul, li, a, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("etudiants");
+                li = ul.getElementsByTagName("button");
+                for (i = 0; i < li.length; i++) {
+                    a = li[i]//.getElementsByTagName("a")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                }
+            }
+
+        //Get Moyenne and Mention
+
+            //alert(possible)
+    </script>
+
+</html>

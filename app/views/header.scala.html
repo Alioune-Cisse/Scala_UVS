@@ -1,0 +1,22 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <!--a class="navbar-brand" href="#"-->
+                <img src="@routes.Assets.at("images/index.jpg")" alt="Logo_UVS.">
+            <!--/a-->
+        </div>
+        <ul class="nav navbar-nav" id="ndoumbe">
+            <li id="portable"><a href="#" class="glyphicon glyphicon-menu-hamburger"></a></li>
+            <li id="portable2"><a href="#" class="glyphicon glyphicon-remove"></a></li>
+            <li class="mask active" id="next"><a href="@routes.Application.index()">Accueil</a></li>
+            <li class="mask"><a href="#">Salles</a></li>
+            <li class="mask"><a href="#">Professeurs</a></li>
+            <li class="mask"><a href="@routes.Etudiants.list()">Etudiants</a></li>
+            <li class="mask"><a href="@routes.Application.classes()">Classes</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <!--li class="mask"><a href="#"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li-->
+            <li class="mask"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Se connecter comme admin</a></li>
+        </ul>
+    </div>
+</nav>
