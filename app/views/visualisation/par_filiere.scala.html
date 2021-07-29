@@ -1,0 +1,45 @@
+@(moyennec: List[Moyenne_Fil])
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Etudiants</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="@routes.Assets.at("javascripts/main.js")"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body id="main">
+        @header()
+        <section id="viz">
+            <h2>Moyenne Par Filière</h2>
+            <div style="margin-left: 8%; margin-right: 8%; background-color: white">
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Classes</th>
+                                <th>Moyenne</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @for(m_c <- moyennec) {
+                            <tr>
+                                <td>@m_c.lib</td>
+                                <td>@m_c.moyenne</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+
+        </section>
+    </body>
+
+</html>

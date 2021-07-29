@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Etudiants</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="@routes.Assets.at("javascripts/main.js")"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body id="main">
+        @header()
+    <section id="viz">
+        <h2>Visualisation Par Filière</h2>
+        <div style="margin-left: 8%; margin-right: 8%; background-color: white">
+            <canvas id="canvas1">
+
+                    </canvas>
+        </div>
+
+        <style>
+                    #canvas{
+                        margin-left: 20%;
+                        margin-right: 20%;
+                        height: 20px;
+                        text-align: center;
+                    }
+            </style>
+        <script>
+
+                    var labs = ["Intelligence Artificielle", "Big Data Analytics", "CyberSécurité", "Robotique", "Modélisation mathématique analyse et simulation numériques", "Calcul Scientifique"]
+                    var data = [56, 90, 34, 20, 74, 80]
+                    var myChart = document.getElementById('canvas1').getContext('2d');
+                    var stackedBar = new Chart(myChart, {
+                        type: 'bar',
+                        data: {
+                            labels: labs,
+                            datasets: [
+                                {
+                                    data: data,
+                                    borderColor: "blue",
+                                    backgroundColor: [
+                                        "#fbb4ae", "#b3cde3", "#ccebc5", "#decbe4", "#fed9a6", "#d9d9d9"
+                                    ],
+                                    fill: 'blue',
+                                    pointStyle: 'blablueck',
+                                    label: "Taux de Réussite (en %)"
+                                }
+                            ]
+                        },
+                        options: {
+                            scales: {
+                                x: {
+                                    stacked: true
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            }
+                        }
+                    });
+
+
+            </script>
+
+    </section>
+    </body>
+
+</html>

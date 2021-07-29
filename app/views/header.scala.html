@@ -8,9 +8,9 @@
         <ul class="nav navbar-nav" id="ndoumbe">
             <li id="portable"><a href="#" class="glyphicon glyphicon-menu-hamburger"></a></li>
             <li id="portable2"><a href="#" class="glyphicon glyphicon-remove"></a></li>
-            <li class="mask active" id="next"><a href="@routes.Application.index()">Accueil</a></li>
-            <li class="mask"><a href="#">Salles</a></li>
-            <li class="mask"><a href="#">Professeurs</a></li>
+            <li class="mask activer" id="next"><a href="@routes.Application.index()">Accueil</a></li>
+            <li class="mask"><a href="@routes.Salles.list()">Salles</a></li>
+            <li class="mask"><a href="@routes.Professeurs.list()">Professeurs</a></li>
             <li class="mask"><a href="@routes.Etudiants.list()">Etudiants</a></li>
             <li class="mask"><a href="@routes.Application.classes()">Classes</a></li>
         </ul>

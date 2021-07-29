@@ -6,7 +6,7 @@
 
 <html>
     <head>
-        <title>Classes</title>
+        <title>Etudiants</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
@@ -22,6 +22,8 @@
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Rechercher un étudiant..." title="Type in a name">
         </div>
         <section id="etudiants">
+            <div style="margin-left: 8%; margin-right: 8%">
+                <h2>Liste des étudiants</h2>
         @for(etudiant <- etudiants) {
                 <button class="accordion">@etudiant.idEtu : @etudiant.nomEtu @etudiant.prenomEtu
                 <span id="plus" class="ndambe glyphicon glyphicon-plus" style="float: right"></span>
@@ -30,7 +32,7 @@
                     <h2>Bulletin de notes</h2>
                     <br><br>
                     <b>Numéro étudiant : @etudiant.idEtu</b><br><br>
-                    <b>Nom et Prénom : @etudiant.nomEtu @etudiant.prenomEtu</b><br><br>
+                    <b>Prénom et NOM : @etudiant.prenomEtu @etudiant.nomEtu </b><br><br>
                     <b>Classe : @etudiant.niveau</b><br><br>
                     <table class="table table-bordered" style="border: 1px solid black">
                         <thead>
@@ -91,6 +93,7 @@
             </script>
 
         }
+            </div>
         </section>
 
         @footer()

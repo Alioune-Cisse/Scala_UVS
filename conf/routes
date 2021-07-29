@@ -15,3 +15,17 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET /cours controllers.Courss.list
 
 GET /etudiants controllers.Etudiants.list
+
+GET /viz_par_classe  controllers.Moyenne_Classes.list
+
+GET /viz_par_fil  controllers.Moyenne_Fils.list
+
+GET /professeurs controllers.Professeurs.list
+
+GET /salles controllers.Salles.list
+
+GET /total controllers.Total.list
+
+GET /totalbar controllers.TotalBar.list
+
+#GET            /statistics/:average/:count             controllers.Moyenne_Classes.list(average: List[Moyenne_Classe], count: List[Moyenne_Classe])

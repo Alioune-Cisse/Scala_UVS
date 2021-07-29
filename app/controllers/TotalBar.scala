@@ -1,10 +1,12 @@
 package controllers
 import play.api.mvc.{Action, Controller}
-import models.Salle
-object Salles
+import models.Moyenne_Classe
+import  models.Moyenne_Fil
+
+object TotalBar
   extends Controller {
   def list = Action { implicit request =>
-    val salles = Salle.findAll
-    Ok(views.html.salles.list(salles))
+
+    Ok(views.html.visualisation.totalbar())
   }
 }

@@ -1,7 +1,9 @@
 <section id="allocation">
-    <h2>Allocution des Salles</h2>
+    <h2>Allocation des Salles</h2>
 
-    <button class="accordion">Salle 1</button>
+    <button class="accordion">Salle 1
+        <span id="plus" class="ndambe glyphicon glyphicon-plus" style="float: right"></span>
+    </button>
     <div class="panel">
         <table class="table table-bordered">
             <thead>
@@ -81,94 +83,67 @@
         </table>
     </div>
 
-    <button class="accordion">Salle 2</button>
+    <button class="accordion">Salle 2
+        <span id="plus" class="ndambe glyphicon glyphicon-plus" style="float: right"></span>
+    </button>
     <div class="panel">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    <button class="accordion">Salle 3</button>
+    <button class="accordion">Salle 3
+        <span id="plus" class="ndambe glyphicon glyphicon-plus" style="float: right"></span>
+    </button>
     <div class="panel">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    <button class="accordion">Salle 4</button>
+    <button class="accordion">Salle 4
+        <span id="plus" class="ndambe glyphicon glyphicon-plus" style="float: right"></span>
+    </button>
     <div class="panel">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    <button class="accordion">Salle 5</button>
+    <button class="accordion">Salle 5
+        <span id="plus" class="ndambe glyphicon glyphicon-plus" style="float: right"></span>
+    </button>
     <div class="panel">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    <button class="accordion">Salle 6</button>
+    <button class="accordion">Salle 6
+        <span id="plus" class="ndambe glyphicon glyphicon-plus" style="float: right"></span>
+    </button>
     <div class="panel">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    <button class="accordion">Salle 7</button>
+    <button class="accordion">Salle 7
+        <span id="plus" class="ndambe glyphicon glyphicon-plus" style="float: right"></span>
+    </button>
     <div class="panel">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    <button class="accordion">Salle 8</button>
+    <button class="accordion">Salle 8
+        <span id="plus" class="ndambe glyphicon glyphicon-plus" style="float: right"></span>
+    </button>
     <div class="panel">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    <button class="accordion">Salle 9</button>
+    <button class="accordion">Salle 9
+        <span id="plus" class="ndambe glyphicon glyphicon-plus" style="float: right"></span>
+    </button>
     <div class="panel">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    <button class="accordion">Salle 10</button>
+    <button class="accordion">Salle 10
+        <span id="plus" class="ndambe glyphicon glyphicon-plus" style="float: right"></span>
+    </button>
     <div class="panel">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 </section>
 
-<style>
-    h2{
-        text-align: center;
-    }
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-}
-
-.active, .accordion:hover {
-    background-color: #ccc;
-}
-
-.panel {
-    padding: 0 18px;
-    display: none;
-    background-color: white;
-    overflow: hidden;
-}
-</style>
-
-<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    });
-}
-</script>
