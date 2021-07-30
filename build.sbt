@@ -13,11 +13,11 @@ libraryDependencies ++= Seq(
 //libraryDependencies += "mysql" % "mysql-connector-java" % "8.0.16"
 
  publishTo := Some(
-   "My resolver" at "https://github.com/Alioune-Cisse/UVS"
+   "My resolver" at "https://mycompany.com/repo"
  ),
  
  credentials += Credentials(
-   "Repo", "https://github.com/Alioune-Cisse/UVS", "Alioune-CISSE", "AliouneCisse1997"
+   "Repo", "https://mycompany.com/repo", "admin", "admin123"
  )
 
 play.Project.playScalaSettings
