@@ -1,0 +1,113 @@
+@(occu: List[Occupees])
+
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Classes</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="@routes.Assets.at("javascripts/main.js")"></script>
+    </head>
+    <body id="main">
+        @header()
+        <div style="margin-right: 20%; margin-left: 20%">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Rechercher ..." title="Type in a name">
+        </div>
+        <div style="margin-left: 8%; margin-right: 8%; background-color: white">
+            <h2>Liste des Salles de classes occupées</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nom Salle</th>
+                        <th>Numéro Salle</th>
+                        <th>Jours</th>
+                        <th>Heures</th>
+                        <th>Proesseur</th>
+                        <th>Matière</th>
+                    </tr>
+                </thead>
+                <tbody id="etudiants">
+                @for(salle <- occu) {
+                    <tr>
+                        <td>@salle.salles</td>
+                        <td>@salle.num</td>
+                        <td>@salle.jours</td>
+                        <td>@salle.heures</td>
+                        <td>@salle.profs</td>
+                        <td>@salle.mat</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        @footer()
+    </body>
+    <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            #myInput {
+                background-image: url('/css/searchicon.png');
+                background-position: 10px 12px;
+                background-repeat: no-repeat;
+                width: 100%;
+                font-size: 16px;
+                padding: 12px 20px 12px 40px;
+                border: 1px solid #ddd;
+                margin-bottom: 12px;
+            }
+
+            #myUL {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            #myUL li a {
+                border: 1px solid #ddd;
+                margin-top: -1px; /* Prevent double borders */
+                background-color: #f6f6f6;
+                padding: 12px;
+                text-decoration: none;
+                font-size: 18px;
+                color: black;
+                display: block
+            }
+
+            #myUL li a:hover:not(.header) {
+                background-color: #eee;
+            }
+    </style>
+
+    <script>
+            //Search Button
+            function myFunction() {
+                var input, filter, ul, li, a, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("etudiants");
+                li = ul.getElementsByTagName("tr");
+                for (i = 0; i < li.length; i++) {
+                    a = li[i]//.getElementsByTagName("td")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                }
+            }
+
+            //Get Moyenne and Mention
+
+            //alert(possible)
+    </script>
+</html>

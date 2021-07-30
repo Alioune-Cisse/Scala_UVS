@@ -16,9 +16,10 @@
     </head>
     <body id="main">
         @header()
+        @viz()
         <section id="viz">
-            <h2>Visualisation Totale</h2>
             <div style="margin-left: 8%; margin-right: 8%; background-color: white">
+                <h2>Visualisation Totale</h2>
                     <canvas id="canvas">
 
                     </canvas>
@@ -34,38 +35,6 @@
             </style>
             <script>
 
-                    /*var labs = ["Intelligence Artificielle", "Big Data Analytics", "CyberSécurité", "Robotique", "Modélisation mathématique analyse et simulation numériques", "Calcul Scientifique", "Systèmes, Réseaux et Infrastructures Virtuelles", "Ingénierie Logicielle"]
-                    var data = [56, 90, 34, 20, 74, 80, 12, 99]
-                    var myChart = document.getElementById('canvas1').getContext('2d');
-                    var stackedBar = new Chart(myChart, {
-                        type: 'bar',
-                        data: {
-                            labels: labs,
-                            datasets: [
-                                {
-                                    data: data,
-                                    borderColor: "blue",
-                                    backgroundColor: [
-                                        "#fbb4ae", "#b3cde3", "#ccebc5", "#decbe4", "#fed9a6", "#ffffcc", "#e5d8bd", "#fddaec"
-                                    ],
-                                    fill: 'blue',
-                                    pointStyle: 'blablueck',
-                                    label: "Taux de Réussite (en %)"
-                                }
-                            ]
-                        },
-                        options: {
-                            scales: {
-                                x: {
-                                    stacked: true
-                                },
-                                y: {
-                                    stacked: true
-                                }
-                            }
-                        }
-                    });*/
-
                     var canvas = document.getElementById("canvas");
                     var ctx = canvas.getContext('2d');
 
@@ -74,8 +43,8 @@
                         datasets: [
                             {
                                 fill: true,
-                                backgroundColor: ["#ffffb3", "#bebada"],
-                                data: [67, 33],
+                                backgroundColor: ["#66c2a5", "#fc8d62"],
+                                data: [67.371, 32.629],
                                 borderColor:	['black', 'black']
                             }
                         ]

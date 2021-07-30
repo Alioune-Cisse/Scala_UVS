@@ -28,4 +28,6 @@ GET /total controllers.Total.list
 
 GET /totalbar controllers.TotalBar.list
 
+GET /occupees controllers.Occupeess.list
+
 #GET            /statistics/:average/:count             controllers.Moyenne_Classes.list(average: List[Moyenne_Classe], count: List[Moyenne_Classe])

@@ -20,7 +20,7 @@ object Salle {
     val stmt = conn.createStatement
     val rs = stmt.executeQuery(
       """SELECT *
-        |from salle""".stripMargin)
+        |from salle ORDER BY num asc""".stripMargin)
 
     while (rs.next()) {
 

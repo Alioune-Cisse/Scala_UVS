@@ -36,7 +36,7 @@ object Etudiant {
         |      GROUP_CONCAT(Libelle, ',') as Libelle
         |from etudiant,notesetudiants,matiere
         |where TRIM(notesetudiants.codeMat) = TRIM(matiere.codeMat) and TRIM(notesetudiants.idEtu) = TRIM(etudiant.idEtu)
-        |group By etudiant.idEtu""".stripMargin)
+        |group By etudiant.idEtu order By nomEtu""".stripMargin)
 
     while (rs.next()) {
       //Libellé
